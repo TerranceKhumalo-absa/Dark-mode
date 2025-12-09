@@ -22,7 +22,7 @@ const InputShowcase: React.FC = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [clearableValue, setClearableValue] = useState('Clear me');
 
-  const baseInputClass = "w-full bg-white dark:bg-absa-surfaceHighlight border border-absa-border rounded-md px-4 py-2.5 text-sm text-absa-text placeholder-absa-muted focus:outline-none focus:ring-2 focus:ring-absa-primary focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-gray-50 dark:read-only:bg-black/20 read-only:border-absa-border";
+  const baseInputClass = "w-full bg-white dark:bg-absa-surface-highlight border border-absa-border rounded-md px-4 py-2.5 text-sm text-absa-text placeholder-absa-muted focus:outline-none focus:ring-2 focus:ring-absa-primary focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed read-only:bg-gray-50 dark:read-only:bg-black/20 read-only:border-absa-border";
 
   return (
     <div className="bg-white dark:bg-absa-surface p-8 rounded-xl shadow-sm border border-absa-border transition-colors duration-300">
