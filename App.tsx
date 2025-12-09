@@ -33,20 +33,20 @@ const App: React.FC = () => {
     { 
       id: 'corporate', 
       name: 'Corporate', 
-      color: '#f52d28',
-      desc: 'Standard Brand (Agile on Graphite)'
+      color: '#af144b',
+      desc: 'Surprise on Neutral Dark'
     },
     { 
       id: 'contrast', 
       name: 'High Contrast', 
       color: '#f47721',
-      desc: 'Accessibility (Energy on Black)'
+      desc: 'Energy on Pure Black'
     },
     { 
       id: 'premium', 
       name: 'Premium', 
       color: '#af144b',
-      desc: 'Sophisticated (Surprise on Depth)'
+      desc: 'Surprise on Warm Charcoal'
     },
   ];
 

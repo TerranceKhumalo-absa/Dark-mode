@@ -38,13 +38,13 @@ const PaletteViewer: React.FC<PaletteViewerProps> = ({ theme }) => {
         case 'corporate':
             return {
                 colors: [
-                    { name: 'Agile', hex: '#f52d28', desc: 'Pantone® 1655C (Primary)' },
-                    { name: 'Graphite', hex: '#2d2323', desc: 'Pantone® 440C (Surface)' },
-                    { name: 'Dark Graphite', hex: '#1c1515', desc: 'Background Mix' },
+                    { name: 'Surprise', hex: '#af144b', desc: 'Primary (Pantone® Rubine Red)' },
+                    { name: 'Neutral Dark', hex: '#1a1a1a', desc: 'Surface (Dark Grey)' },
+                    { name: 'Near Black', hex: '#0f0f0f', desc: 'Background' },
                 ],
-                theory: "Warm Greys reduce eye strain compared to high-contrast black. This theme maintains the classic Absa Red identity using 'Agile' (which is brighter than 'Passion') to ensure legibility against the dark surface.",
+                theory: "You requested 'Surprise' (#af144b) as the primary. To fix the 'low contrast' issue on the standard Graphite background, I have darkened the background significantly to a Neutral Dark Grey. This makes the Rubine Red pop crisply while maintaining a professional 'Corporate' look.",
                 icon: <Palette size={20} className="text-absa-primary"/>,
-                title: "Color Theory: Brand Identity"
+                title: "Color Theory: Contrast Correction"
             };
         case 'contrast':
              return {
@@ -60,13 +60,13 @@ const PaletteViewer: React.FC<PaletteViewerProps> = ({ theme }) => {
         case 'premium':
              return {
                  colors: [
-                    { name: 'Surprise', hex: '#af144b', desc: 'Pantone® Rubine Red C' },
-                    { name: 'Depth', hex: '#500a28', desc: 'Pantone® 683C (Surface)' },
-                    { name: 'Dark Depth', hex: '#1a030d', desc: 'Background Mix' },
+                    { name: 'Surprise', hex: '#af144b', desc: 'Primary (Pantone® Rubine Red)' },
+                    { name: 'Espresso', hex: '#240e16', desc: 'Surface (Darkened Depth)' },
+                    { name: 'Dark Warmth', hex: '#120509', desc: 'Background (Subtle Red Tint)' },
                  ],
-                 theory: "Uses an Analogous harmony. The background is a very deep purple/brown ('Depth'), and the primary action color is a lighter purple/red ('Surprise'). This low-contrast background with a rich hue creates a luxurious, sophisticated feel.",
+                 theory: "Addressing the 'too much dark red' feedback: This theme keeps the elegant 'Surprise' primary but drastically reduces the background saturation. Instead of the heavy purple 'Depth' background, it uses a deep Charcoal/Espresso blend. It feels luxurious without being overwhelming.",
                  icon: <Sparkles size={20} className="text-absa-primary"/>,
-                 title: "Color Theory: Sophistication"
+                 title: "Color Theory: Balanced Luxury"
              };
         default:
             return { colors: [], theory: "", icon: null, title: "" };
