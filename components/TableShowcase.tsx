@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Filter, ChevronUp, ChevronDown, Check, X, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
 import { TableRow } from '../types';
 
-// Mock data matching the structure in the provided screenshot
 const MOCK_DATA: TableRow[] = [
   { id: '1', colA: 'A11', colB: '12/29/2021', colC: '100%', colD: false, colE: 'Tiger' },
   { id: '2', colA: 'A12', colB: '12/09/2022', colC: '110%', colD: false, colE: 'Cheetah' },
@@ -29,13 +28,12 @@ const TableShowcase: React.FC = () => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Generate tabs Table 1 to Table 10 to match screenshot
   const tabs = Array.from({ length: 10 }, (_, i) => `Table ${i + 1}`);
 
   return (
-    <div className="bg-white dark:bg-absa-surface rounded-xl shadow-sm border border-absa-border flex flex-col min-h-[600px] transition-colors duration-300">
+    <div className="bg-white dark:bg-absa-surface rounded-[var(--radius-card)] shadow-sm border border-absa-border flex flex-col min-h-[600px] transition-colors duration-300 overflow-hidden">
       
-      {/* Table Tabs (Scrollable) */}
+      {/* Table Tabs */}
       <div className="flex overflow-x-auto border-b border-absa-border bg-gray-50/50 dark:bg-black/10 no-scrollbar">
         {tabs.map((tab) => (
           <button
@@ -50,16 +48,13 @@ const TableShowcase: React.FC = () => {
             {tab}
           </button>
         ))}
-        {/* Spacer to fill width */}
         <div className="flex-grow border-b-2 border-transparent"></div>
       </div>
 
-      {/* Description Row */}
       <div className="p-6 border-b border-absa-border bg-white dark:bg-absa-surface">
          <h3 className="text-base font-bold text-absa-text">Table with a paginator, multiple sorting and individual filtering</h3>
       </div>
 
-      {/* The Table */}
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-absa-border">
           <thead className="bg-white dark:bg-absa-surface">
@@ -91,13 +86,10 @@ const TableShowcase: React.FC = () => {
         </table>
       </div>
 
-      {/* Spacer to push pagination to bottom */}
       <div className="flex-1 min-h-[50px]"></div>
 
-      {/* Pagination Footer - Structurally matched to screenshot */}
-      <div className="border-t border-absa-border p-4 flex flex-col md:flex-row items-center justify-between text-xs text-absa-muted bg-white dark:bg-absa-surface rounded-b-xl">
+      <div className="border-t border-absa-border p-4 flex flex-col md:flex-row items-center justify-between text-xs text-absa-muted bg-white dark:bg-absa-surface">
         
-        {/* Left: Rows Per Page */}
         <div className="flex items-center mb-4 md:mb-0">
           <span className="mr-3">Rows per page:</span>
           <div className="relative">
@@ -109,7 +101,6 @@ const TableShowcase: React.FC = () => {
               <ChevronDown size={14} className="ml-2" />
             </button>
             
-            {/* Rows Dropdown Menu */}
             {isDropdownOpen && (
               <div className="absolute bottom-full left-0 mb-1 w-20 bg-white dark:bg-absa-surface border border-absa-border rounded shadow-lg z-10">
                 {[5, 10, 25, 50].map((num) => (
@@ -129,30 +120,27 @@ const TableShowcase: React.FC = () => {
           </div>
         </div>
 
-        {/* Right: Pagination Controls */}
         <div className="flex items-center gap-6">
             <span>11 - 15 of 32</span>
             
             <div className="flex items-center space-x-1">
-                <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 text-absa-muted">
+                <button className="w-8 h-8 flex items-center justify-center rounded-[var(--radius-btn)] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 text-absa-muted">
                     <ChevronsLeft size={16} />
                 </button>
-                <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 text-absa-muted">
+                <button className="w-8 h-8 flex items-center justify-center rounded-[var(--radius-btn)] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 text-absa-muted">
                     <ChevronLeft size={16} />
                 </button>
                 
-                {/* Page Numbers */}
-                <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-white/10 text-absa-muted">1</button>
-                <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-white/10 text-absa-muted">2</button>
-                {/* Active Page */}
-                <button className="w-8 h-8 flex items-center justify-center rounded bg-absa-primary text-white font-medium shadow-sm">3</button>
-                <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-white/10 text-absa-muted">4</button>
-                <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-white/10 text-absa-muted">5</button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-[var(--radius-btn)] hover:bg-gray-100 dark:hover:bg-white/10 text-absa-muted">1</button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-[var(--radius-btn)] hover:bg-gray-100 dark:hover:bg-white/10 text-absa-muted">2</button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-[var(--radius-btn)] bg-absa-primary text-white font-medium shadow-sm">3</button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-[var(--radius-btn)] hover:bg-gray-100 dark:hover:bg-white/10 text-absa-muted">4</button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-[var(--radius-btn)] hover:bg-gray-100 dark:hover:bg-white/10 text-absa-muted">5</button>
 
-                <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 text-absa-muted">
+                <button className="w-8 h-8 flex items-center justify-center rounded-[var(--radius-btn)] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 text-absa-muted">
                     <ChevronRight size={16} />
                 </button>
-                <button className="w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 text-absa-muted">
+                <button className="w-8 h-8 flex items-center justify-center rounded-[var(--radius-btn)] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 text-absa-muted">
                     <ChevronsRight size={16} />
                 </button>
             </div>

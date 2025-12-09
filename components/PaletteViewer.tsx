@@ -1,5 +1,5 @@
 import React from 'react';
-import { Copy, Palette, Eye, Sparkles } from 'lucide-react';
+import { Copy, Palette, Eye, Sparkles, Smartphone, Cpu } from 'lucide-react';
 import { DarkThemeVariant } from '../App';
 
 interface PaletteViewerProps {
@@ -42,7 +42,7 @@ const PaletteViewer: React.FC<PaletteViewerProps> = ({ theme }) => {
                     { name: 'Neutral Dark', hex: '#1a1a1a', desc: 'Surface (Dark Grey)' },
                     { name: 'Near Black', hex: '#0f0f0f', desc: 'Background' },
                 ],
-                theory: "You requested 'Surprise' (#af144b) as the primary. To fix the 'low contrast' issue on the standard Graphite background, I have darkened the background significantly to a Neutral Dark Grey. This makes the Rubine Red pop crisply while maintaining a professional 'Corporate' look.",
+                theory: "Uses #af144b on a neutral dark grey background. This is a classic corporate dark mode.",
                 icon: <Palette size={20} className="text-absa-primary"/>,
                 title: "Color Theory: Contrast Correction"
             };
@@ -53,7 +53,7 @@ const PaletteViewer: React.FC<PaletteViewerProps> = ({ theme }) => {
                     { name: 'Black', hex: '#000000', desc: 'Background' },
                     { name: 'Prepared', hex: '#fa551e', desc: 'Pantone® 2018C (Secondary)' },
                 ],
-                theory: "Orange ('Energy') has a significantly higher luminance value than red. Paired with pure black, this theme offers the highest possible contrast ratio, making it the most accessible choice for visually impaired users.",
+                theory: "High luminance orange on pure black for maximum accessibility.",
                 icon: <Eye size={20} className="text-absa-primary"/>,
                 title: "Color Theory: Accessibility"
             };
@@ -64,10 +64,32 @@ const PaletteViewer: React.FC<PaletteViewerProps> = ({ theme }) => {
                     { name: 'Espresso', hex: '#240e16', desc: 'Surface (Darkened Depth)' },
                     { name: 'Dark Warmth', hex: '#120509', desc: 'Background (Subtle Red Tint)' },
                  ],
-                 theory: "Addressing the 'too much dark red' feedback: This theme keeps the elegant 'Surprise' primary but drastically reduces the background saturation. Instead of the heavy purple 'Depth' background, it uses a deep Charcoal/Espresso blend. It feels luxurious without being overwhelming.",
+                 theory: "Low saturation background with warm undertones. Feels distinct and luxurious.",
                  icon: <Sparkles size={20} className="text-absa-primary"/>,
                  title: "Color Theory: Balanced Luxury"
              };
+        case 'material':
+            return {
+                colors: [
+                   { name: 'Material Primary', hex: '#ffb0c8', desc: 'MD3 Tonal Primary' },
+                   { name: 'Surface', hex: '#141218', desc: 'MD3 Surface' },
+                   { name: 'Surface Container', hex: '#211f26', desc: 'MD3 Container' },
+                ],
+                theory: "Material Design 3 Philosophy: Uses tonal palettes (lighter primary for dark mode) and significantly rounded corners (Stadium shape buttons). Note the shape change.",
+                icon: <Smartphone size={20} className="text-absa-primary"/>,
+                title: "Design System: Material 3"
+            };
+        case 'scifi':
+            return {
+                colors: [
+                   { name: 'Agile', hex: '#f52d28', desc: 'Primary Red' },
+                   { name: 'Gunmetal', hex: '#151e32', desc: 'Surface Blue-Grey' },
+                   { name: 'Deep Space', hex: '#0b1120', desc: 'Background' },
+                ],
+                theory: "Agile Red on a deep, cool Gunmetal Blue background. Sharp corners (2px radius) for a high-tech, data-heavy dashboard feel.",
+                icon: <Cpu size={20} className="text-absa-primary"/>,
+                title: "Theme: Sci-Fi / Data"
+            };
         default:
             return { colors: [], theory: "", icon: null, title: "" };
     }

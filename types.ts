@@ -1,4 +1,4 @@
-export type ViewState = 'BUTTON' | 'TABLE';
+export type ViewState = 'BUTTON' | 'TABLE' | 'INPUT';
 
 export interface TableRow {
   id: string;

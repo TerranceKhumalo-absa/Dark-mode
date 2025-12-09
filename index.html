@@ -17,12 +17,19 @@
                 secondary: 'var(--color-secondary)', // Secondary Elements
                 bg: 'var(--color-bg)',             // App Background
                 surface: 'var(--color-surface)',   // Card/Container Background
+                surfaceHighlight: 'var(--color-surface-highlight)', // Lighter surface
                 border: 'var(--color-border)',     // Border lines
                 text: 'var(--color-text)',         // Main Text
                 muted: 'var(--color-muted)',       // Secondary Text
                 success: 'var(--color-success)',   // Success State
                 error: 'var(--color-error)',       // Error State
               }
+            },
+            borderRadius: {
+                DEFAULT: 'var(--radius-input)',
+                md: 'var(--radius-input)',
+                lg: 'var(--radius-card)',
+                full: '9999px',
             }
           }
         }
@@ -34,11 +41,17 @@
        * Derived strictly from Absa Analogous Colour Palette Image 
        */
       :root {
+        /* Defaults */
+        --radius-btn: 6px;
+        --radius-input: 6px;
+        --radius-card: 12px;
+
         /* LIGHT MODE (Standard Absa Brand) */
         --color-primary: #dc0032; /* Passion (Pantone 199C) */
         --color-secondary: #aa052d; /* Human (Pantone 188C) */
         --color-bg: #F9FAFB;      /* Standard Light Grey */
         --color-surface: #FFFFFF; /* White */
+        --color-surface-highlight: #F3F4F6;
         --color-border: #E5E7EB;  
         --color-text: #111827;    
         --color-muted: #6B7280;   
@@ -50,16 +63,16 @@
        * DARK MODE STRATEGIES
        */
 
-      /* 
-       * THEME 1: CORPORATE (Surprise on Neutral Dark)
-       * Fix: Uses #af144b but on a much darker background (#111) 
-       * to ensure high contrast compared to the previous Graphite.
-       */
+      /* THEME 1: CORPORATE (Surprise on Neutral Dark) */
       .dark.theme-corporate {
-        --color-primary: #af144b; /* Surprise (Rubine Red) */
-        --color-secondary: #f0325a; /* Smile (lighter accent for hover) */
-        --color-bg: #0f0f0f;      /* Near Black (Neutral) */
-        --color-surface: #1a1a1a; /* Dark Neutral Grey */
+        --radius-btn: 6px;
+        --radius-input: 6px;
+        --radius-card: 12px;
+        --color-primary: #af144b; /* Surprise */
+        --color-secondary: #f0325a; 
+        --color-bg: #0f0f0f;      
+        --color-surface: #1a1a1a; 
+        --color-surface-highlight: #262626;
         --color-border: #333333;  
         --color-text: #f3f4f6;    
         --color-muted: #9ca3af;   
@@ -67,38 +80,76 @@
         --color-error: #ff4d4d;   
       }
 
-      /* 
-       * THEME 2: HIGH CONTRAST (Energy Orange on Black)
-       * Theory: Accessibility. Orange has higher luminance than red. 
-       * Pure Black background maximizes contrast.
-       */
+      /* THEME 2: HIGH CONTRAST (Energy Orange on Black) */
       .dark.theme-contrast {
+        --radius-btn: 4px;
+        --radius-input: 4px;
+        --radius-card: 8px;
         --color-primary: #f47721; /* Energy */
-        --color-secondary: #fa551e; /* Prepared */
-        --color-bg: #000000;      /* Black */
-        --color-surface: #121212; /* Very Dark Grey */
+        --color-secondary: #fa551e; 
+        --color-bg: #000000;      
+        --color-surface: #121212; 
+        --color-surface-highlight: #1E1E1E;
         --color-border: #27272a;  
         --color-text: #ffffff;    
         --color-muted: #a1a1aa;   
         --color-success: #84CC16; 
-        --color-error: #f05a78;   /* Care */
+        --color-error: #f05a78;   
       }
 
-      /* 
-       * THEME 3: PREMIUM (Surprise on Darkened Espresso)
-       * Fix: Uses #af144b but desaturates the background significantly 
-       * so it feels elegant, not "too much red".
-       */
+      /* THEME 3: PREMIUM (Surprise on Darkened Espresso) */
       .dark.theme-premium {
-        --color-primary: #af144b; /* Surprise (Rubine Red) */
+        --radius-btn: 8px;
+        --radius-input: 8px;
+        --radius-card: 16px;
+        --color-primary: #af144b; /* Surprise */
         --color-secondary: #d4205b; 
-        --color-bg: #120509;      /* Very Dark Warm Black (Hint of Red) */
-        --color-surface: #240e16; /* Deep Espresso (Much darker than previous 'Depth') */
+        --color-bg: #120509;      
+        --color-surface: #240e16; 
+        --color-surface-highlight: #361621;
         --color-border: #4a1d2d;  
         --color-text: #ffe4e6;    
         --color-muted: #dcb0bb;   
         --color-success: #34d399; 
         --color-error: #e11d48;
+      }
+
+      /* THEME 4: MATERIAL 3 (Surprise on M3 Surface) 
+       * Philosophy: High rounding, Tonal surfaces, Tinted overlays
+       */
+      .dark.theme-material {
+        --radius-btn: 9999px;     /* Full Stadium for buttons */
+        --radius-input: 12px;     /* Rounded inputs */
+        --radius-card: 24px;      /* Large rounded cards */
+        
+        --color-primary: #ffb0c8; /* Material 'Primary' (Lightened Surprise for Dark) */
+        --color-secondary: #af144b; /* Material 'Primary Container' */
+        --color-bg: #141218;      /* MD3 Surface */
+        --color-surface: #211f26; /* MD3 Surface Container */
+        --color-surface-highlight: #2b2930; /* MD3 Surface Container High */
+        --color-border: #49454f;  /* MD3 Outline */
+        --color-text: #e6e1e5;    /* MD3 On Surface */
+        --color-muted: #cac4d0;   /* MD3 On Surface Variant */
+        --color-success: #a8dbb5; 
+        --color-error: #ffb4ab;
+      }
+
+      /* THEME 5: SCI-FI (Agile on Deep Gunmetal) */
+      .dark.theme-scifi {
+        --radius-btn: 2px;
+        --radius-input: 2px;
+        --radius-card: 4px;
+        
+        --color-primary: #f52d28; /* Agile */
+        --color-secondary: #dc0032; 
+        --color-bg: #0b1120;      /* Deep Blue/Black */
+        --color-surface: #151e32; /* Gunmetal */
+        --color-surface-highlight: #1e2942;
+        --color-border: #2d3b59;  
+        --color-text: #e2e8f0;    
+        --color-muted: #94a3b8;   
+        --color-success: #38bdf8; /* Cyan for success */
+        --color-error: #f87171;
       }
 
       /* Custom scrollbar */
@@ -120,7 +171,7 @@
       body {
         background-color: var(--color-bg);
         color: var(--color-text);
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
       }
     </style>
   <script type="importmap">
