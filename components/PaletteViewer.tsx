@@ -1,5 +1,5 @@
 import React from 'react';
-import { Copy, Palette, Eye, Sparkles, Smartphone, Cpu } from 'lucide-react';
+import { Copy, Palette, Eye, Sparkles, Smartphone, Cpu, Leaf } from 'lucide-react';
 import { DarkThemeVariant } from '../App';
 
 interface PaletteViewerProps {
@@ -68,16 +68,16 @@ const PaletteViewer: React.FC<PaletteViewerProps> = ({ theme }) => {
                  icon: <Sparkles size={20} className="text-absa-primary"/>,
                  title: "Color Theory: Balanced Luxury"
              };
-        case 'material':
+        case 'fresh':
             return {
                 colors: [
-                   { name: 'Material Primary', hex: '#ffb0c8', desc: 'MD3 Tonal Primary' },
-                   { name: 'Surface', hex: '#141218', desc: 'MD3 Surface' },
-                   { name: 'Surface Container', hex: '#211f26', desc: 'MD3 Container' },
+                   { name: 'Smile', hex: '#f0325a', desc: 'Primary (Pantone® 191C)' },
+                   { name: 'Graphite', hex: '#2d2323', desc: 'Background (Pantone® 440C)' },
+                   { name: 'Surface', hex: '#3a2f2f', desc: 'Lightened Graphite' },
                 ],
-                theory: "Material Design 3 Philosophy: Uses tonal palettes (lighter primary for dark mode) and significantly rounded corners (Stadium shape buttons). Note the shape change.",
-                icon: <Smartphone size={20} className="text-absa-primary"/>,
-                title: "Design System: Material 3"
+                theory: "Brand Harmony: Instead of black, this theme uses the official 'Graphite' color as the dark background. Paired with 'Smile' pink, it creates a warm, human-centric, and fresh dark mode.",
+                icon: <Leaf size={20} className="text-absa-primary"/>,
+                title: "Theme: Fresh / Warm Dark"
             };
         case 'scifi':
             return {

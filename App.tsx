@@ -8,7 +8,7 @@ import Sidebar from './components/Sidebar';
 import { ViewState } from './types';
 
 // Expanded themes
-export type DarkThemeVariant = 'corporate' | 'contrast' | 'premium' | 'material' | 'scifi';
+export type DarkThemeVariant = 'corporate' | 'contrast' | 'premium' | 'fresh' | 'scifi';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewState>('BUTTON');
@@ -19,7 +19,7 @@ const App: React.FC = () => {
   // Handle Dark Mode & Theme Toggle
   useEffect(() => {
     const html = document.documentElement;
-    html.classList.remove('dark', 'light', 'theme-corporate', 'theme-contrast', 'theme-premium', 'theme-material', 'theme-scifi');
+    html.classList.remove('dark', 'light', 'theme-corporate', 'theme-contrast', 'theme-premium', 'theme-fresh', 'theme-scifi');
 
     if (isDarkMode) {
       html.classList.add('dark');
@@ -49,10 +49,10 @@ const App: React.FC = () => {
       desc: 'Surprise on Espresso'
     },
     { 
-      id: 'material', 
-      name: 'Material 3', 
-      color: '#ffb0c8',
-      desc: 'M3 Guidelines & Shapes'
+      id: 'fresh', 
+      name: 'Fresh', 
+      color: '#f0325a',
+      desc: 'Smile on Graphite'
     },
     { 
       id: 'scifi', 
