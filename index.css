@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --color-absa-primary: var(--color-primary);
+  --color-absa-secondary: var(--color-secondary);
+  --color-absa-bg: var(--color-bg);
+  --color-absa-surface: var(--color-surface);
+  --color-absa-surface-highlight: var(--color-surface-highlight);
+  --color-absa-border: var(--color-border);
+  --color-absa-text: var(--color-text);
+  --color-absa-muted: var(--color-muted);
+  --color-absa-success: var(--color-success);
+  --color-absa-error: var(--color-error);
+}
+
+/* 
+ * CSS VARIABLES FOR THEMING 
+ * Derived strictly from Absa Analogous Colour Palette Image 
+ */
+@layer base {
+  :root {
+    /* Defaults */
+    --radius-btn: 6px;
+    --radius-input: 6px;
+    --radius-card: 12px;
+
+    /* LIGHT MODE (Standard Absa Brand) */
+    --color-primary: #dc0032; /* Passion (Pantone 199C) */
+    --color-secondary: #aa052d; /* Human (Pantone 188C) */
+    --color-bg: #F9FAFB;      /* Standard Light Grey */
+    --color-surface: #FFFFFF; /* White */
+    --color-surface-highlight: #F3F4F6;
+    --color-border: #E5E7EB;  
+    --color-text: #111827;    
+    --color-muted: #6B7280;   
+    --color-success: #059669; 
+    --color-error: #be0028;   /* Warmth (Pantone 201C) */
+  }
+
+  /* THEME 1: CORPORATE (Surprise on Neutral Dark) */
+  .dark.theme-corporate {
+    --radius-btn: 6px;
+    --radius-input: 6px;
+    --radius-card: 12px;
+    --color-primary: #af144b; /* Surprise */
+    --color-secondary: #f0325a; 
+    --color-bg: #0f0f0f;      
+    --color-surface: #1a1a1a; 
+    --color-surface-highlight: #262626;
+    --color-border: #333333;  
+    --color-text: #f3f4f6;    
+    --color-muted: #9ca3af;   
+    --color-success: #10B981; 
+    --color-error: #ff4d4d;   
+  }
+
+  /* THEME 2: HIGH CONTRAST (Energy Orange on Black) */
+  .dark.theme-contrast {
+    --radius-btn: 4px;
+    --radius-input: 4px;
+    --radius-card: 8px;
+    --color-primary: #f47721; /* Energy */
+    --color-secondary: #fa551e; 
+    --color-bg: #000000;      
+    --color-surface: #121212; 
+    --color-surface-highlight: #1E1E1E;
+    --color-border: #27272a;  
+    --color-text: #ffffff;    
+    --color-muted: #a1a1aa;   
+    --color-success: #84CC16; 
+    --color-error: #f05a78;   
+  }
+
+  /* THEME 3: PREMIUM (Surprise on Darkened Espresso) */
+  .dark.theme-premium {
+    --radius-btn: 8px;
+    --radius-input: 8px;
+    --radius-card: 16px;
+    --color-primary: #af144b; /* Surprise */
+    --color-secondary: #d4205b; 
+    --color-bg: #120509;      
+    --color-surface: #240e16; 
+    --color-surface-highlight: #361621;
+    --color-border: #4a1d2d;  
+    --color-text: #ffe4e6;    
+    --color-muted: #dcb0bb;   
+    --color-success: #34d399; 
+    --color-error: #e11d48;
+  }
+
+  /* THEME 4: FRESH (Smile on Graphite) */
+  .dark.theme-fresh {
+    --radius-btn: 12px;
+    --radius-input: 12px;
+    --radius-card: 20px;
+    
+    --color-primary: #f0325a; /* Smile */
+    --color-secondary: #f05a78; /* Care */
+    --color-bg: #2d2323;      /* Graphite */
+    --color-surface: #3a2f2f; 
+    --color-surface-highlight: #483b3b;
+    --color-border: #594a4a;  
+    --color-text: #fdf2f4;    
+    --color-muted: #bcaaaa;   
+    --color-success: #34d399; 
+    --color-error: #f87171;
+  }
+
+  /* THEME 5: SCI-FI (Agile on Deep Gunmetal) */
+  .dark.theme-scifi {
+    --radius-btn: 2px;
+    --radius-input: 2px;
+    --radius-card: 4px;
+    
+    --color-primary: #f52d28; /* Agile */
+    --color-secondary: #dc0032; 
+    --color-bg: #0b1120;      
+    --color-surface: #151e32; 
+    --color-surface-highlight: #1e2942;
+    --color-border: #2d3b59;  
+    --color-text: #e2e8f0;    
+    --color-muted: #94a3b8;   
+    --color-success: #38bdf8; 
+    --color-error: #f87171;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg); 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border); 
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary); 
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+  }
+}
