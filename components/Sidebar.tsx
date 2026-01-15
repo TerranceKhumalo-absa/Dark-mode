@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { LayoutGrid, Table2, Type, LogOut } from 'lucide-react';
+import { LayoutGrid, Table2, Type, Workflow, AlertCircle, Bookmark, LogOut, Layers, MessageSquare, ToggleLeft } from 'lucide-react';
 import { ViewState } from '../types';
 
 interface SidebarProps {
@@ -8,17 +9,22 @@ interface SidebarProps {
   isDarkMode: boolean;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ currentView, setCurrentView, isDarkMode }) => {
+const Sidebar: React.FC<SidebarProps> = ({ currentView, setCurrentView }) => {
   
   const navItems: { id: ViewState; label: string; icon: React.ReactNode }[] = [
+    { id: 'PIPELINES', label: 'Pipelines', icon: <Workflow size={20} /> },
     { id: 'BUTTON', label: 'Buttons', icon: <LayoutGrid size={20} /> },
+    { id: 'BUTTON_TOGGLE', label: 'Button Toggle', icon: <ToggleLeft size={20} /> },
+    { id: 'TABS', label: 'Tabs', icon: <Layers size={20} /> },
+    { id: 'DIALOG', label: 'Dialog', icon: <MessageSquare size={20} /> },
     { id: 'TABLE', label: 'Data Grid', icon: <Table2 size={20} /> },
     { id: 'INPUT', label: 'Inputs', icon: <Type size={20} /> },
+    { id: 'ALERTS', label: 'Alerts', icon: <AlertCircle size={20} /> },
+    { id: 'BADGES', label: 'Badges', icon: <Bookmark size={20} /> },
   ];
 
   return (
     <div className="w-64 bg-white dark:bg-absa-surface border-r border-absa-border flex flex-col h-full transition-colors duration-300">
-      {/* Brand Header */}
       <div className="h-16 flex items-center px-6 border-b border-absa-border">
         <div className="w-8 h-8 rounded-full bg-absa-primary flex items-center justify-center text-white font-bold text-xs shrink-0 mr-3 shadow-lg shadow-absa-primary/30">
           AB
@@ -29,8 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, setCurrentView, isDarkMo
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="flex-1 p-4 space-y-1">
+      <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
         {navItems.map((item) => (
           <button
             key={item.id}
@@ -50,7 +55,6 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, setCurrentView, isDarkMo
         ))}
       </nav>
 
-      {/* Footer Info */}
       <div className="p-6 border-t border-absa-border">
          <div className="flex items-center space-x-3 text-absa-muted hover:text-absa-text cursor-pointer transition-colors">
             <LogOut size={16} />

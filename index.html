@@ -1,13 +1,108 @@
+
 <!DOCTYPE html>
 <html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎨</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Absa Consumer Products UI Kit</title>
-  </head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              absa: {
+                primary: 'var(--color-primary)',
+                secondary: 'var(--color-secondary)',
+                accent: 'var(--color-accent)',
+                bg: 'var(--color-bg)',
+                surface: 'var(--color-surface)',
+                surfaceHighlight: 'var(--color-surface-highlight)',
+                border: 'var(--color-border)',
+                text: 'var(--color-text)',
+                muted: 'var(--color-muted)',
+                success: 'var(--color-success)',
+                error: 'var(--color-error)',
+                warning: 'var(--color-warning)',
+              }
+            },
+            borderRadius: {
+                DEFAULT: 'var(--radius-input)',
+                md: 'var(--radius-input)',
+                lg: 'var(--radius-card)',
+                full: '9999px',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --radius-btn: 6px;
+        --radius-input: 6px;
+        --radius-card: 12px;
+
+        --color-primary: #dc0032; /* Passion Red */
+        --color-secondary: #f47721; /* Energy Orange */
+        --color-accent: #aa052d; /* Human Red */
+        --color-bg: #F9FAFB;
+        --color-surface: #FFFFFF;
+        --color-surface-highlight: #F3F4F6;
+        --color-border: #E5E7EB;  
+        --color-text: #111827;    
+        --color-muted: #6B7280;   
+        --color-success: #059669; 
+        --color-warning: #D97706;
+        --color-error: #be0028;
+      }
+
+      .dark.theme-corporate {
+        --color-primary: #af144b;
+        --color-secondary: #f47721;
+        --color-accent: #dc0032;
+        --color-bg: #0a0a0a;
+        --color-surface: #141414;
+        --color-surface-highlight: #1e1e1e;
+        --color-border: #262626;
+        --color-text: #f3f4f6;
+        --color-muted: #a3a3a3;
+      }
+
+      .dark.theme-scifi {
+        --radius-btn: 2px;
+        --radius-input: 2px;
+        --radius-card: 4px;
+        --color-primary: #f52d28;
+        --color-secondary: #00e5ff; /* Cyan accent for sci-fi */
+        --color-bg: #0b1120;
+        --color-surface: #151e32;
+        --color-surface-highlight: #1e2942;
+        --color-border: #2d3b59;
+        --color-text: #e2e8f0;
+        --color-muted: #94a3b8;
+      }
+
+      /* Global transitions for theme switching */
+      * { transition: background-color 0.2s ease, border-color 0.2s ease; }
+      
+      body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+  }
+}
+</script>
+</head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

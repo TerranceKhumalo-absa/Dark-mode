@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { PlusCircle, Loader2 } from 'lucide-react';
 import { ButtonSize, ButtonVariant } from '../types';
@@ -22,20 +23,20 @@ const Button: React.FC<ButtonProps> = ({
   ...props 
 }) => {
   
-  // Uses var(--radius-btn) which changes based on theme
-  let baseClass = "rounded-[var(--radius-btn)] font-medium transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-absa-primary dark:focus:ring-offset-absa-bg disabled:opacity-50 disabled:cursor-not-allowed";
+  let baseClass = "rounded-[var(--radius-btn)] font-semibold transition-all duration-200 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-absa-primary dark:focus:ring-offset-absa-bg disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]";
   
   const sizeClasses = {
-    lg: "px-6 py-3 text-base",
-    md: "px-4 py-2 text-sm",
-    sm: "px-3 py-1.5 text-xs",
-    xs: "px-2 py-1 text-[10px] uppercase tracking-wide",
+    lg: "px-6 py-3 text-base h-12",
+    md: "px-4 py-2 text-sm h-10",
+    sm: "px-3 py-1.5 text-xs h-8",
+    xs: "px-2 py-1 text-[10px] uppercase tracking-wide h-7",
   };
 
   const variantClasses = {
-    solid: "bg-absa-primary hover:bg-absa-secondary text-white shadow-sm disabled:bg-gray-300 dark:disabled:bg-gray-700 dark:disabled:text-gray-500 border border-transparent",
-    outlined: "bg-transparent border border-absa-primary text-absa-primary hover:bg-absa-primary/10 disabled:border-gray-300 disabled:text-gray-300 dark:disabled:border-gray-700 dark:disabled:text-gray-600",
-    borderless: "bg-transparent text-absa-primary hover:bg-absa-primary/10 disabled:text-gray-300 dark:disabled:text-gray-600 border border-transparent",
+    solid: "bg-absa-primary hover:bg-absa-accent text-white shadow-sm border border-transparent",
+    secondary: "bg-absa-secondary hover:bg-orange-600 text-white shadow-sm border border-transparent",
+    outlined: "bg-transparent border border-absa-border text-absa-text hover:bg-gray-50 dark:hover:bg-white/5",
+    borderless: "bg-transparent text-absa-primary hover:bg-absa-primary/10 border border-transparent",
   };
 
   return (
@@ -59,60 +60,42 @@ const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   </h2>
 );
 
-const ButtonRow: React.FC<{ variant: ButtonVariant }> = ({ variant }) => {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start mb-8">
-      <div className="flex flex-col space-y-4 items-start">
-        <span className="text-xs font-semibold text-absa-muted uppercase tracking-wider mb-1">Standard</span>
-        <Button variant={variant} size="lg">Large button</Button>
-        <Button variant={variant} size="md">Normal button</Button>
-        <Button variant={variant} size="sm">Small button</Button>
-        <Button variant={variant} size="xs">XSmall button</Button>
-      </div>
-
-      <div className="flex flex-col space-y-4 items-start">
-        <span className="text-xs font-semibold text-absa-muted uppercase tracking-wider mb-1">Left Icon</span>
-        <Button variant={variant} size="lg" iconLeft>Large button</Button>
-        <Button variant={variant} size="md" iconLeft>Normal button</Button>
-        <Button variant={variant} size="sm" iconLeft>Small button</Button>
-        <Button variant={variant} size="xs" iconLeft>XSmall button</Button>
-      </div>
-
-      <div className="flex flex-col space-y-4 items-start">
-        <span className="text-xs font-semibold text-absa-muted uppercase tracking-wider mb-1">Right Icon</span>
-        <Button variant={variant} size="lg" iconRight>Large button</Button>
-        <Button variant={variant} size="md" iconRight>Normal button</Button>
-        <Button variant={variant} size="sm" iconRight>Small button</Button>
-        <Button variant={variant} size="xs" iconRight>XSmall button</Button>
-      </div>
-
-      <div className="flex flex-col space-y-4 items-start">
-        <span className="text-xs font-semibold text-absa-muted uppercase tracking-wider mb-1">Disabled</span>
-        <Button variant={variant} size="lg" disabled iconLeft>Large button</Button>
-        <Button variant={variant} size="md" disabled iconLeft>Normal button</Button>
-        <Button variant={variant} size="sm" disabled iconLeft>Small button</Button>
-        <Button variant={variant} size="xs" disabled iconLeft>XSmall button</Button>
-      </div>
-    </div>
-  );
-};
-
 const ButtonShowcase: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-absa-surface p-8 rounded-[var(--radius-card)] shadow-sm border border-absa-border transition-colors duration-300">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-absa-text">Button Components</h1>
-        <p className="text-absa-muted mt-2">Interactive button states adapting to the selected theme's shape and color tokens.</p>
+    <div className="bg-white dark:bg-absa-surface p-8 rounded-xl border border-absa-border shadow-sm">
+      <h1 className="text-2xl font-bold text-absa-text mb-2">Buttons</h1>
+      <p className="text-absa-muted mb-8">Modernized components using the full Absa brand palette.</p>
+
+      <div className="grid gap-12">
+        <section>
+          <SectionHeader title="Primary & Secondary (Action Highlight)" />
+          <div className="flex flex-wrap gap-4">
+            <Button variant="solid">Primary Passion</Button>
+            <Button variant="secondary">Secondary Energy</Button>
+            <Button variant="outlined">Outlined Neutral</Button>
+            <Button variant="borderless">Ghost Primary</Button>
+          </div>
+        </section>
+
+        <section>
+          <SectionHeader title="Sizes" />
+          <div className="flex items-end gap-4">
+            <Button size="lg">Large</Button>
+            <Button size="md">Medium</Button>
+            <Button size="sm">Small</Button>
+            <Button size="xs">X-Small</Button>
+          </div>
+        </section>
+
+        <section>
+          <SectionHeader title="States" />
+          <div className="flex flex-wrap gap-4">
+            <Button isLoading>Loading State</Button>
+            <Button iconLeft>With Icon</Button>
+            <Button disabled>Disabled State</Button>
+          </div>
+        </section>
       </div>
-
-      <SectionHeader title="Solid Fill" />
-      <ButtonRow variant="solid" />
-
-      <SectionHeader title="Outlined" />
-      <ButtonRow variant="outlined" />
-
-      <SectionHeader title="Ghost / Borderless" />
-      <ButtonRow variant="borderless" />
     </div>
   );
 };
